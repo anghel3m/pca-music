@@ -11,6 +11,14 @@ import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class HomePage {
+  //temas
+  temaClaro = 'var( --tema-claro-fondo)';
+  temaOscuro = 'var( --tema-oscuro-fondo)';
+  temaActual = this.temaOscuro;
+
+  temaClaroTexto = 'var(--tema-claro-texto)';
+  temaOscuroTexto = 'var(--tema-oscuro-texto)';
+  tematextoActual = this.temaOscuroTexto;
 
   generes = [
     {
@@ -35,4 +43,10 @@ export class HomePage {
   }  
  ]
   constructor() { }
+
+cambiarTema(){
+//if ternario
+this. temaActual = this.temaActual === this.temaOscuro ? this.temaClaro : this.temaOscuro
+this. tematextoActual = this.tematextoActual === this.temaOscuroTexto ? this.temaClaroTexto : this.temaOscuroTexto
+}
 }
