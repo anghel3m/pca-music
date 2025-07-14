@@ -2,26 +2,45 @@
   <ion-toolbar>
     <ion-title>
       PCA Music
-
       <ion-button (click)="cambiarTema()">
         Tema
       </ion-button>
-
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [style.background-color]="temaActual">
-  <swiper-container auto-loop="true" slides-per-view="1" autoplay-delay="3000" style="width: 100%; height: 80%"
+<ion-content>
+
+  <swiper-container
+   auto-loop="true" 
+   slides-per-view="1" 
+   autoplay-delay="3000" 
+   style="width: 100%; height: 90%"
     [style.background-color]="temaActual">
+
     <swiper-slide *ngFor="let genere of generes">
-      <div class="slide-content">
-        <h2 [style.color]="tematextoActual">{{genere.title}} </h2>
+      <div
+       class="slide-content">
+
+        <h2 [style.color]="tematextoActual"
+        >{{genere.title}} 
+          </h2>
+
         <img [src]="genere.image" [alt]="genere.title">
-        <p [style.color]="tematextoActual">{{genere.description}}</p>
+
+        <p [style.color]="tematextoActual"
+        >{{genere.description}}
+          </p>
+
       </div>
     </swiper-slide>
-    
   </swiper-container>
-  <div [style.background-color]="temaActual" [style.color]="tematextoActual" class="slide-content">reproductor</div>
+
+  <div 
+      [style.background-color]="temaActual" 
+      [style.color]="tematextoActual" 
+      class="slide-content"
+      >reproductor
+    </div>
+
 </ion-content>
