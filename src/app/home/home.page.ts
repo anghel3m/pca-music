@@ -45,15 +45,31 @@ export class HomePage implements OnInit {
   constructor(private storageService: StorageService) { }
 
   async ngOnInit() {
-    
+    await this.loadStorageData();
   }
 
-  async cambiarTema() {
-    //if ternario
-    this.temaActual = this.temaActual === this.temaOscuro ? this.temaClaro : this.temaOscuro
-    this.tematextoActual = this.tematextoActual === this.temaOscuroTexto ? this.temaClaroTexto : this.temaOscuroTexto
-    await this.storageService.set('theme', this.temaActual)
-    console.log('tema guardado: ', this.temaActual)
+async cambiarTema() {
+  const esOscuro = this.temaActual === this.temaOscuro;
 
+  this.temaActual = esOscuro ? this.temaClaro : this.temaOscuro;
+  this.tematextoActual = esOscuro ? this.temaClaroTexto : this.temaOscuroTexto;
+
+  await this.storageService.set('theme', this.temaActual);
+  await this.storageService.set('theme-text', this.tematextoActual); 
+
+  console.log('tema guardado: ', this.temaActual);
+  console.log('texto guardado: ', this.tematextoActual);
+}
+
+async loadStorageData() {
+  const savedTheme = await this.storageService.get('theme');
+  if (savedTheme) {
+    this.temaActual = savedTheme;
   }
+
+  const savedTextTheme = await this.storageService.get('theme-text');
+  if (savedTextTheme) {
+    this.tematextoActual = savedTextTheme;
+  }
+}
 }
