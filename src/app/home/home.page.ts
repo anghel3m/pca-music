@@ -3,6 +3,8 @@ import { IonicModule } from '@ionic/angular';
 import { CommonModule } from '@angular/common';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { StorageService } from "../services/storage.service";
+import { Router } from "@angular/router";
+
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
@@ -42,34 +44,38 @@ export class HomePage implements OnInit {
       description: "El reggaetón, con su ritmo contagioso y beats energéticos, acelera el ánimo y la productividad en trabajos dinámicos. Su flow repetitivo ayuda a mantener el ritmo en tareas repetitivas o físicas, mientras que las letras motivadoras (o el instrumental) pueden aumentar la energía. "
     }
   ]
-  constructor(private storageService: StorageService) { }
+  constructor(private router: Router, private storageService: StorageService) { }
 
   async ngOnInit() {
     await this.loadStorageData();
   }
 
-async cambiarTema() {
-  const esOscuro = this.temaActual === this.temaOscuro;
-
-  this.temaActual = esOscuro ? this.temaClaro : this.temaOscuro;
-  this.tematextoActual = esOscuro ? this.temaClaroTexto : this.temaOscuroTexto;
-
-  await this.storageService.set('theme', this.temaActual);
-  await this.storageService.set('theme-text', this.tematextoActual); 
-
-  console.log('tema guardado: ', this.temaActual);
-  console.log('texto guardado: ', this.tematextoActual);
-}
-
-async loadStorageData() {
-  const savedTheme = await this.storageService.get('theme');
-  if (savedTheme) {
-    this.temaActual = savedTheme;
+  goBack() {
+    this.router.navigateByUrl("/intro");
   }
 
-  const savedTextTheme = await this.storageService.get('theme-text');
-  if (savedTextTheme) {
-    this.tematextoActual = savedTextTheme;
+  async cambiarTema() {
+    const esOscuro = this.temaActual === this.temaOscuro;
+
+    this.temaActual = esOscuro ? this.temaClaro : this.temaOscuro;
+    this.tematextoActual = esOscuro ? this.temaClaroTexto : this.temaOscuroTexto;
+
+    await this.storageService.set('theme', this.temaActual);
+    await this.storageService.set('theme-text', this.tematextoActual);
+
+    console.log('tema guardado: ', this.temaActual);
+    console.log('texto guardado: ', this.tematextoActual);
   }
-}
+
+  async loadStorageData() {
+    const savedTheme = await this.storageService.get('theme');
+    if (savedTheme) {
+      this.temaActual = savedTheme;
+    }
+
+    const savedTextTheme = await this.storageService.get('theme-text');
+    if (savedTextTheme) {
+      this.tematextoActual = savedTextTheme;
+    }
+  }
 }
