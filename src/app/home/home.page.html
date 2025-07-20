@@ -1,13 +1,17 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>
-      PCA Music
-       <ion-button (click)="goBack()">
-        intro
-      </ion-button>
-      <ion-button (click)="cambiarTema()">
-        Tema
-      </ion-button>
+      <div class="title-container">
+        PCA Music
+        <div class="title-buttons">
+          <ion-button fill="clear" size="medium" (click)="goBack()">
+            <ion-icon name="exit"></ion-icon>
+          </ion-button>
+          <ion-button fill="clear" size="medium" (click)="cambiarTema()">
+            <ion-icon name="contrast"></ion-icon>
+          </ion-button>
+        </div>
+      </div>
     </ion-title>
   </ion-toolbar>
 </ion-header>

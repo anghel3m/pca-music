@@ -1,12 +1,39 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>intro</ion-title>
-      <ion-button (click)="goBack()" (click)="guardarVisita()">
-    home
-  </ion-button>
+    <ion-title>
+    </ion-title>
+      <ion-title>
+      <div class="title-container">
+          intro
+      </div>
+    </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
 
+<ion-content class="ion-padding slides-bg">
+  <swiper-container
+    [slides-per-view]="1"
+    class="w-full h-full custom-swiper">
+
+    <swiper-slide *ngFor="let introSlide of introSlides; let i = index">
+      <div class="slide-content">
+        <div class="slide-icon-wrapper">
+          <ion-icon [name]="introSlide.icon" class="slide-icon"></ion-icon>
+        </div>
+        <h2 class="slide-title">{{ introSlide.title }}</h2>
+        <p class="slide-desc">{{ introSlide.description }}</p>
+
+        <!-- Botón visible solo en el último slide -->
+        <ion-button *ngIf="i === introSlides.length - 1"
+                    color="primary"
+                    expand="block"
+                    (click)="goHome()"
+                    (click)="guardarVisita()"
+                    >
+           <ion-icon name="home"></ion-icon>
+        </ion-button>
+      </div>
+    </swiper-slide>
+  </swiper-container>
 </ion-content>

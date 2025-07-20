@@ -62,9 +62,6 @@ export class HomePage implements OnInit {
 
     await this.storageService.set('theme', this.temaActual);
     await this.storageService.set('theme-text', this.tematextoActual);
-
-    console.log('tema guardado: ', this.temaActual);
-    console.log('texto guardado: ', this.tematextoActual);
   }
 
   async loadStorageData() {
