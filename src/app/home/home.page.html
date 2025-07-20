@@ -1,13 +1,13 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>
-      <div class="title-container">
+      <div class="ion-text-center">
         PCA Music
-        <div class="title-buttons">
-          <ion-button fill="clear" size="medium" (click)="goBack()">
+        <div>
+          <ion-button  class="slide-button" size="medium" (click)="goBack()">
             <ion-icon name="exit"></ion-icon>
           </ion-button>
-          <ion-button fill="clear" size="medium" (click)="cambiarTema()">
+          <ion-button class="slide-button"  size="medium" (click)="cambiarTema()">
             <ion-icon name="contrast"></ion-icon>
           </ion-button>
         </div>
@@ -17,17 +17,16 @@
 </ion-header>
 
 <ion-content
- [style.--background-color]="temaActual"
+[ngStyle]="{'--ion-background-color': temaActual}"
+class="ion-padding custom-content"
 >
-
   <swiper-container
-   auto-loop="true" 
-   slides-per-view="1" 
-   autoplay-delay="3000" 
-
+   [slides-per-view]="1"
+    class="w-full h-full custom-swiper"
     [style.background-color]="temaActual">
 
-    <swiper-slide *ngFor="let genere of generes">
+    <swiper-slide 
+    *ngFor="let genere of generes">
       <div
        class="slide-content">
 

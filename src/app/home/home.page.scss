@@ -1,3 +1,14 @@
+$bg-icon:     rgba(255, 231, 0, 0.10); // Amarillo claro, transparente
+$icon-color:  #f9ba10;
+$title-color: #212121;
+$text-color:  #707070;
+$shadow:      0 8px 32px 0 rgba(60, 92, 122, 0.06);
+
+.custom-swiper {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+}
 
 .slide-content {
   text-align: center;
@@ -9,7 +20,6 @@
     margin: 0 0 20px 0;
     font-size: 1.8rem;
     font-weight: 600;
-   
     text-shadow: 0 2px 4px rgba(0,0,0,0.3);
     font-family: 'Segoe UI', 'Roboto', sans-serif;
   }
@@ -44,3 +54,8 @@
     display: flex;
     gap: 4px;
   }
+  
+  .slide-button {
+  --background: $icon-color;
+  background-color: #f9ba10;
+}

@@ -1,15 +1,12 @@
 // Variables principales de color (ajusta a tu gusto o usa variables globales de Ionic)
-$bg-slide:    #f6fafd;
-$bg-content:  #ffffff;
+
 $bg-icon:     rgba(255, 231, 0, 0.10); // Amarillo claro, transparente
 $icon-color:  #f9ba10;
 $title-color: #212121;
 $text-color:  #707070;
 $shadow:      0 8px 32px 0 rgba(60, 92, 122, 0.06);
 
-.slides-bg {
-  background: $bg-slide;
-}
+
 
 .custom-swiper {
   height: 100vh;
@@ -26,7 +23,6 @@ $shadow:      0 8px 32px 0 rgba(60, 92, 122, 0.06);
   height: 85vh;
   gap: 2rem;
   padding: 2.5rem;
-  background: $bg-content;
   border-radius: 24px;
   box-shadow: $shadow;
   max-width: 370px;
@@ -48,6 +44,11 @@ $shadow:      0 8px 32px 0 rgba(60, 92, 122, 0.06);
   font-size: 3rem;
   width: 3.5rem;
   height: 3.5rem;
+}
+
+.slide-button {
+  --background: $icon-color;
+  background-color: #f9ba10;
 }
 
 .slide-title {

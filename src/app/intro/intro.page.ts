@@ -18,11 +18,11 @@ export class IntroPage implements OnInit {
     //temas
   temaClaro = 'var( --tema-claro-fondo)';
   temaOscuro = 'var( --tema-oscuro-fondo)';
-  temaActual = this.temaClaro;
+  temaActual = this.temaOscuro;
 
   temaClaroTexto = 'var(--tema-claro-texto)';
   temaOscuroTexto = 'var(--tema-oscuro-texto)';
-  tematextoActual = this.temaClaroTexto;
+  tematextoActual = this.temaOscuroTexto;
 
  introSlides = [
   {
@@ -56,7 +56,28 @@ export class IntroPage implements OnInit {
   constructor(private router: Router, private storageService: StorageService) { }
 
     async ngOnInit() {
-  
+    await this.loadStorageData();
+  }
+   async cambiarTema() {
+    const esOscuro = this.temaActual === this.temaOscuro;
+
+    this.temaActual = esOscuro ? this.temaClaro : this.temaOscuro;
+    this.tematextoActual = esOscuro ? this.temaClaroTexto : this.temaOscuroTexto;
+
+    await this.storageService.set('theme', this.temaActual);
+    await this.storageService.set('theme-text', this.tematextoActual);
+  }
+
+  async loadStorageData() {
+    const savedTheme = await this.storageService.get('theme');
+    if (savedTheme) {
+      this.temaActual = savedTheme;
+    }
+
+    const savedTextTheme = await this.storageService.get('theme-text');
+    if (savedTextTheme) {
+      this.tematextoActual = savedTextTheme;
+    }
   }
 
   goHome() {
