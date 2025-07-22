@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding login-content">
+
+  <!-- Imagen de perfil -->
+  <figure class="profile-default-image ion-text-center">
+    <p class="login-title">Ingresa tus datos</p>
+    <img src="../../assets/images/login_user.png" alt="Usuario" class="login-avatar">
+  </figure>
+
+  <form [formGroup]="loginForm" class="login-form">
+
+    <!-- Email -->
+    <ion-item class="login-item">
+      <ion-label position="floating"></ion-label>
+      <ion-input type="email" formControlName="email" placeholder="email@domain.com"></ion-input>
+    </ion-item>
+
+    <div class="error-message" *ngFor="let validation of validation_messages.email">
+      <div *ngIf="loginForm.get('email')?.hasError(validation.type) && loginForm.get('email')?.dirty">
+        {{validation.message}}
+      </div>
+    </div>
+
+    <!-- Password -->
+    <ion-item class="login-item">
+      <ion-label position="floating"></ion-label>
+      <ion-input type="password" formControlName="password" placeholder="password"></ion-input>
+    </ion-item>
+
+    <div class="error-message" *ngFor="let validation of validation_messages.password">
+      <div *ngIf="loginForm.get('password')?.hasError(validation.type) && loginForm.get('password')?.dirty">
+        {{validation.message}}
+      </div>
+    </div>
+
+    <!-- Aquí puedes agregar un botón luego -->
+
+  </form>
+
+</ion-content>
