@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { IonicModule } from '@ionic/angular';
+import { IonicModule, NavController } from '@ionic/angular';
+import { AuthService } from "../services/auth.service";
 
 @Component({
   selector: 'app-login',
@@ -13,6 +14,8 @@ import { IonicModule } from '@ionic/angular';
 export class LoginPage implements OnInit {
 
   loginForm: FormGroup;
+  errror_Message: string = "";
+  
 
   validation_messages = {
     email: [
@@ -32,8 +35,8 @@ export class LoginPage implements OnInit {
       }
     ]
   }
-  
-  constructor(private FormBuilder: FormBuilder) {
+
+  constructor(private FormBuilder: FormBuilder, private authService: AuthService, private navCtrl: NavController ) {
     this.loginForm = this.FormBuilder.group({
       email: [
         '',
@@ -45,14 +48,26 @@ export class LoginPage implements OnInit {
       password: [
         '',
         Validators.compose([
-        Validators.required,
-        Validators.minLength(6),
+          Validators.required,
+          Validators.minLength(6),
         ])
       ]
     })
   }
 
   ngOnInit() {
+
+  }
+
+  loginUser(credentiales: any) {
+   /*  console.log(credentiales) */
+  this.authService.loginUser(credentiales).then(res=> {
+   /*  console.log(res) */
+   this.errror_Message= "";
+   this.navCtrl.navigateForward("/home")
+  }).catch(error =>{
+    this.errror_Message= error;
+  })
   }
 
 }
