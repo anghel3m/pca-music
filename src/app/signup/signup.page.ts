@@ -4,22 +4,39 @@ import { FormsModule, ReactiveFormsModule, FormBuilder, FormGroup, Validators } 
 import { IonicModule, NavController } from '@ionic/angular';
 import { AuthService } from "../services/auth.service";
 import { StorageService } from "../services/storage.service";
+import { RegisterService } from "../services/register.service";
 import { Router } from "@angular/router";
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.page.html',
-  styleUrls: ['./login.page.scss'],
+  selector: 'app-singup',
+  templateUrl: './signup.page.html',
+  styleUrls: ['./signup.page.scss'],
   standalone: true,
   imports: [CommonModule, FormsModule, IonicModule, ReactiveFormsModule,]
 })
-export class LoginPage implements OnInit {
+export class SignupPage implements OnInit {
 
-  loginForm: FormGroup;
+  signupForm: FormGroup;
   errror_Message: string = "";
   
 
   validation_messages = {
+      name: [
+      {
+        type: "required", message: "el email es obligatorio"
+      },
+      {
+        type: "minlength", message: "minimo 3 caracteres"
+      }
+    ],
+     lastName: [
+      {
+        type: "required", message: "el email es obligatorio"
+      },
+      {
+        type: "minlength", message: "minimo 3 caracteres"
+      }
+    ],
     email: [
       {
         type: "required", message: "el email es obligatorio"
@@ -38,13 +55,33 @@ export class LoginPage implements OnInit {
     ]
   }
 
-  constructor(private FormBuilder: FormBuilder, private authService: AuthService, private navCtrl: NavController,private storageService: StorageService, private router: Router ) {
-    this.loginForm = this.FormBuilder.group({
-      email: [
+  constructor(private FormBuilder: FormBuilder, 
+    private authService: AuthService,
+    private navCtrl: NavController,
+    private storageService: StorageService, 
+    private registerService: RegisterService, 
+    private router: Router ) {
+
+    this.signupForm = this.FormBuilder.group({
+      name: [
         '',
         Validators.compose([
           Validators.required, //campo obligatorio
-          Validators.email
+          Validators.minLength(3),
+        ])
+      ],
+      lastName: [
+        '',
+        Validators.compose([
+          Validators.required, //campo obligatorio
+          Validators.minLength(3),
+        ])
+      ],
+      email: [
+        '',
+        Validators.compose([
+          Validators.required,
+          Validators.email,
         ])
       ],
       password: [
@@ -61,9 +98,9 @@ export class LoginPage implements OnInit {
 
   }
 
-  loginUser(credentiales: any) {
+  signUpUser(credentiales: any) {
    /*  console.log(credentiales) */
-  this.authService.loginUser(credentiales).then(res=> {
+  this.registerService.registerUser(credentiales).then(res=> {
    /*  console.log(res) */
    this.errror_Message= "";
    this.navCtrl.navigateForward("/home");
@@ -76,7 +113,7 @@ export class LoginPage implements OnInit {
     await this.storageService.set('logueado', 'si');
   }
 
-   goSignUp() {
-    this.router.navigateByUrl("/signup");
+   goLogin() {
+    this.router.navigateByUrl("/login");
   }
 }

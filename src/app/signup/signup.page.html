@@ -1,0 +1,81 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title  class="ion-text-center">
+      Signup</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding signup-content">
+
+  <!-- Imagen de perfil -->
+  <figure class="profile-default-image ion-text-center">
+    <p class="signup-title">Registrarse</p>
+    <img src="../../assets/images/login_user.png" alt="Usuario" class="signup-avatar">
+  </figure>
+                                                  <!-- /*  signUpUser*/ -->
+  <form [formGroup]="signupForm" class="signup-form" (ngSubmit)="signUpUser(signupForm.value)">
+
+ <!-- nombre -->
+    <ion-item class="signUp-item">
+      <ion-input  formControlName="name" placeholder="name"></ion-input>
+    </ion-item>
+    <div class="error-message" *ngFor="let validation of validation_messages.name">
+      <div *ngIf="signupForm.get('name')?.hasError(validation.type) && signupForm.get('name')?.dirty">
+        {{validation.message}}
+      </div>
+    </div>
+
+    <!-- apellido -->
+    <ion-item class="signUp-item">
+      <ion-input  formControlName="lastName" placeholder="last name"></ion-input>
+    </ion-item>
+    <div class="error-message" *ngFor="let validation of validation_messages.lastName">
+      <div *ngIf="signupForm.get('lastName')?.hasError(validation.type) && signupForm.get('lastName')?.dirty">
+        {{validation.message}}
+      </div>
+    </div>
+
+    <!-- Email -->
+    <ion-item class="signUp-item">
+      <ion-input type="email" formControlName="email" placeholder="email@domain.com"></ion-input>
+    </ion-item>
+    <div class="error-message" *ngFor="let validation of validation_messages.email">
+      <div *ngIf="signupForm.get('email')?.hasError(validation.type) && signupForm.get('email')?.dirty">
+        {{validation.message}}
+      </div>
+    </div>
+
+    <!-- Password -->
+    <ion-item class="signUp-item">
+      <ion-input type="password" formControlName="password" placeholder="password"></ion-input>
+    </ion-item>
+    <div class="error-message" *ngFor="let validation of validation_messages.password">
+      <div *ngIf="signupForm.get('password')?.hasError(validation.type) && signupForm.get('password')?.dirty">
+        {{validation.message}}
+      </div>
+    </div>
+
+    <!--botón login-->
+    <div class="ion-text-center">
+      <ion-button fill="outline"
+       color="warning" 
+       type="submit" 
+       shape="round"
+       [disabled]="!signupForm.valid"
+       >
+        continuar
+      </ion-button>
+    </div>
+    <!--botón login-->
+    <div class="ion-text-center">
+      <ion-button fill="outline"
+       color="warning"  
+       shape="round"
+        (click)="goLogin()"
+       >
+        Sign up
+      </ion-button>
+    </div>
+  </form>
+  {{errror_Message}}
+</ion-content>
