@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { IonicModule, NavController } from '@ionic/angular';
 import { AuthService } from "../services/auth.service";
+import { StorageService } from "../services/storage.service";
 
 @Component({
   selector: 'app-login',
@@ -36,7 +37,7 @@ export class LoginPage implements OnInit {
     ]
   }
 
-  constructor(private FormBuilder: FormBuilder, private authService: AuthService, private navCtrl: NavController ) {
+  constructor(private FormBuilder: FormBuilder, private authService: AuthService, private navCtrl: NavController,private storageService: StorageService, ) {
     this.loginForm = this.FormBuilder.group({
       email: [
         '',
@@ -64,10 +65,14 @@ export class LoginPage implements OnInit {
   this.authService.loginUser(credentiales).then(res=> {
    /*  console.log(res) */
    this.errror_Message= "";
-   this.navCtrl.navigateForward("/home")
+   this.navCtrl.navigateForward("/home");
+    this.logueado() 
   }).catch(error =>{
     this.errror_Message= error;
   })
+  }
+    async logueado() {
+    await this.storageService.set('logueado', 'si');
   }
 
 }
