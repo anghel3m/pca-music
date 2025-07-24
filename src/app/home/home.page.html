@@ -31,18 +31,18 @@ class="ion-padding custom-content"
     [style.background-color]="temaActual">
 
     <swiper-slide 
-    *ngFor="let genere of generes">
+    *ngFor="let album of albums">
       <div
        class="slide-content">
 
         <h2 [style.color]="tematextoActual"
-        >{{genere.title}} 
+        >{{album.name}} 
           </h2>
 
-        <img [src]="genere.image" [alt]="genere.title">
+        <img [src]="album.image" [alt]="album.name">
 
         <p [style.color]="tematextoActual"
-        >{{genere.description}}
+        > Genero:  {{album.genres}}  <br> pularidad: {{album.popularity}} <br> canciones: {{album.total_tracks}} <br> lanzamiento: {{album.release_date}} 
           </p>
 
       </div>

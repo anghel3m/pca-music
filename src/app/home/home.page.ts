@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { StorageService } from "../services/storage.service";
 import { Router } from "@angular/router";
+import { MusicService } from "../services/music.service";
 
 @Component({
   selector: 'app-home',
@@ -21,6 +22,9 @@ export class HomePage implements OnInit {
   temaClaroTexto = 'var(--tema-claro-texto)';
   temaOscuroTexto = 'var(--tema-oscuro-texto)';
   tematextoActual = this.temaOscuroTexto;
+
+  tracks: any;
+  albums: any;
 
   generes = [
     {
@@ -44,10 +48,13 @@ export class HomePage implements OnInit {
       description: "El reggaetón, con su ritmo contagioso y beats energéticos, acelera el ánimo y la productividad en trabajos dinámicos. Su flow repetitivo ayuda a mantener el ritmo en tareas repetitivas o físicas, mientras que las letras motivadoras (o el instrumental) pueden aumentar la energía. "
     }
   ]
-  constructor(private router: Router, private storageService: StorageService) { }
+
+  constructor(private router: Router, private storageService: StorageService, private musicService: MusicService) { }
 
   async ngOnInit() {
     await this.loadStorageData();
+    this.loadTracks();
+    this.loadAlbums();
   }
 
   goBack() {
@@ -74,5 +81,18 @@ export class HomePage implements OnInit {
     if (savedTextTheme) {
       this.tematextoActual = savedTextTheme;
     }
+  }
+
+  async loadTracks() {
+    this.musicService.getTracks().then(tracks => {
+      this.tracks =  tracks
+      console.log(this.tracks,"aqui la musica")
+    })
+  }
+  async loadAlbums() {
+    this.musicService.getAlbums().then(albums => {
+      this.albums=  albums
+      console.log(this.albums,"aqui los albumes")
+    })
   }
 }
