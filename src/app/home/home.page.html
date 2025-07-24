@@ -1,20 +1,29 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>
-      <div class="ion-text-center">
-        PCA Music
-        <div>
-          <ion-button  class="slide-button" size="medium" (click)="goBack()">
-            <ion-icon name="exit"></ion-icon>
-          </ion-button>
-          <ion-button class="slide-button"  size="medium" (click)="cambiarTema()">
-            <ion-icon name="contrast"></ion-icon>
-          </ion-button>
-        </div>
-      </div>
-    </ion-title>
+
+  
+
+    <!-- Título centrado -->
+    <ion-title>PCA Music</ion-title>
+
+    <!-- Botones a la derecha -->
+    <ion-buttons slot="end" class="title-buttons">
+      <ion-button class="slide-button" size="medium" (click)="goBack()">
+        <ion-icon name="exit"></ion-icon>
+      </ion-button>
+      <ion-button class="slide-button" size="medium" (click)="cambiarTema()">
+        <ion-icon name="contrast"></ion-icon>
+      </ion-button>
+
+        <!-- Botón de menú a la izquierda -->
+    
+      <ion-menu-button></ion-menu-button>
+  
+    </ion-buttons>
+
   </ion-toolbar>
 </ion-header>
+
 
 <ion-content
 [ngStyle]="{'--ion-background-color': temaActual}"

@@ -1,0 +1,26 @@
+<ion-split-pane contentId="main-content">
+  <ion-menu contentId="main-content" side="end">
+    <ion-header>
+      <ion-toolbar>
+        <ion-title>
+          Menu
+        </ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content>
+      <ion-list>
+        <ion-title>
+          <ion-item (click)="goIntro()">
+            intro
+          </ion-item>
+          <ion-item>
+            cerrar sesion
+          </ion-item>
+
+        </ion-title>
+      </ion-list>
+    </ion-content>
+  </ion-menu>
+  <ion-router-outlet id="main-content">
+  </ion-router-outlet>
+</ion-split-pane>
