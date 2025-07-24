@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
+import { StorageService } from "../services/storage.service";
 import { Router } from "@angular/router";
 
 @Component({
@@ -13,7 +14,7 @@ import { Router } from "@angular/router";
 })
 export class MenuPage implements OnInit {
 
-  constructor(private router: Router,) { }
+  constructor(private router: Router,private storageService: StorageService) { }
 
   ngOnInit() {
   }
@@ -21,5 +22,12 @@ export class MenuPage implements OnInit {
     goIntro() {
     this.router.navigateByUrl("/intro");
   }
+
+  async closeSesion(){
+      await this.storageService.clear();
+      this.router.navigateByUrl("/login");
+      console.log("se limpio")
+  }
+  
 
 }

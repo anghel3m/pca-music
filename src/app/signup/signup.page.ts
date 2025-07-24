@@ -103,7 +103,7 @@ export class SignupPage implements OnInit {
   this.registerService.registerUser(credentiales).then(res=> {
    /*  console.log(res) */
    this.errror_Message= "";
-   this.navCtrl.navigateForward("/home");
+   this.navCtrl.navigateForward("/menu/home");
     this.logueado() 
   }).catch(error =>{
     this.errror_Message= error;
