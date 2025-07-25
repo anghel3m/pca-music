@@ -1,5 +1,5 @@
-import * as dataArtists from './artista.json';
 import { Injectable } from '@angular/core';
+import * as dataArtists from './artista.json';
 
 @Injectable({
   providedIn: 'root'
@@ -21,6 +21,6 @@ export class MusicService {
     );
   }
   getLocalArtists (){
-    return dataArtists;
+    return dataArtists; 
   }
 }

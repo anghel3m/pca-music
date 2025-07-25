@@ -48,6 +48,49 @@ ion-header {
   }
 }
 
+
+// Barra de búsqueda
+.search-bar {
+  width: 100%;
+  margin: 18px 0 12px 0;
+  ion-searchbar {
+    --background: #22223a;
+    --color: #fff;
+    border-radius: 15px;
+    font-size: 1.12rem;
+  }
+}
+// Barra de búsqueda
+.top-artists-container{
+  width: 100%;
+  margin: 18px 0 12px 0;
+  ion-searchbar {
+    --background: #22223a;
+    --color: #fff;
+    border-radius: 15px;
+    font-size: 1.12rem;
+  }
+}
+
+// Top Artists (cards horizontales)
+.top-artists-container { margin-top: 16px; }
+.top-artists {
+  display: flex;
+  gap: 12px;
+  padding-left: 7px;
+}
+
+.artist-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #26243c;
+  padding: 16px 10px 12px 10px;
+  border-radius: 16px;
+  width: 110px;
+
+}
+
 // Content principal
 .custom-content {
   --background: none !important;

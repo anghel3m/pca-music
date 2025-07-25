@@ -1,4 +1,4 @@
-[
+{"artists" : [
   {
     "nombre": "Beyoncé",
     "genero": "Pop/R&B",
@@ -331,3 +331,4 @@
     ]
   }
 ]
+}
