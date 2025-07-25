@@ -16,7 +16,7 @@
   <form [formGroup]="signupForm" class="signup-form" (ngSubmit)="signUpUser(signupForm.value)">
 
  <!-- nombre -->
-    <ion-item class="signUp-item">
+    <ion-item class="signup-item">
       <ion-input  formControlName="name" placeholder="name"></ion-input>
     </ion-item>
     <div class="error-message" *ngFor="let validation of validation_messages.name">
@@ -26,7 +26,7 @@
     </div>
 
     <!-- apellido -->
-    <ion-item class="signUp-item">
+    <ion-item class="signup-item">
       <ion-input  formControlName="lastName" placeholder="last name"></ion-input>
     </ion-item>
     <div class="error-message" *ngFor="let validation of validation_messages.lastName">
@@ -36,7 +36,7 @@
     </div>
 
     <!-- Email -->
-    <ion-item class="signUp-item">
+    <ion-item class="signup-item">
       <ion-input type="email" formControlName="email" placeholder="email@domain.com"></ion-input>
     </ion-item>
     <div class="error-message" *ngFor="let validation of validation_messages.email">
@@ -46,7 +46,7 @@
     </div>
 
     <!-- Password -->
-    <ion-item class="signUp-item">
+    <ion-item class="signup-item">
       <ion-input type="password" formControlName="password" placeholder="password"></ion-input>
     </ion-item>
     <div class="error-message" *ngFor="let validation of validation_messages.password">
@@ -55,7 +55,7 @@
       </div>
     </div>
 
-    <!--botón login-->
+    <!--botón signup-->
     <div class="ion-text-center">
       <ion-button fill="outline"
        color="warning" 
@@ -66,7 +66,7 @@
         continuar
       </ion-button>
     </div>
-    <!--botón login-->
+    <!--botón signup-->
     <div class="ion-text-center">
       <ion-button fill="outline"
        color="warning"  

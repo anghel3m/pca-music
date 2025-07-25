@@ -1,53 +1,171 @@
-.profile-default-image {
 
-    margin-top: 100px;
+// Dorados principales
+$dorado1: #ffd700;
+$dorado2: #d4af37;
+$dorado3: #b8860b;
+$dorado4: #e5c878;
+
+// Fondos
+$negro-profundo: #0a0a0a;
+$gris-oscuro: #1a1a1a;
+$gris-medio: #2d2d2d;
+$gris-claro: #8a8a8a;
+$blanco: #ffffff;
+// Acentos
+$purpura-vibrante: #6a0dad;
+$azul-electrico: #00bfff;
+$verde-neon: #39ff14;
+$rojo-coral: #ff6b6b;
+// Gradientes
+$gradiente-principal: linear-gradient(135deg, #{$dorado2}, #{$dorado1});
+$gradiente-fondo: linear-gradient(180deg, #{$negro-profundo}, #{$gris-oscuro});
+$gradiente-botones: linear-gradient(45deg, #{$purpura-vibrante}, #{$azul-electrico});
+// Sombras
+$sombra-dorada: 0 4px 20px rgba(212, 175, 55, 0.3);
+$sombra-oscura: 0 2px 10px rgba(0, 0, 0, 0.5);
+$sombra-neon: 0 0 20px rgba(106, 13, 173, 0.4);
+// === ESTILOS signup ===
+
+// Header
+ion-header {
+  ion-toolbar {
+    --background: #{$negro-profundo};
+    --border-color: #{$dorado2};
+    --color: #{$dorado1};
     
+    ion-title {
+      font-weight: bold;
+      font-size: 1.5rem;
+      text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+    }
+  }
 }
-.profile-default-image img{
-    border-radius: 50%;
-    height: 80px;
-    width: 80px;
 
-}
-
+// Content principal
 .signup-content {
+  --background: none !important;
+  background: $gradiente-fondo;
+  background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' fill='%23d4af37' xmlns='http://www.w3.org/2000/svg'%3E%3Ctext x='10' y='50' font-size='50' font-family='Arial' opacity='0.05'%3E%F0%9F%8E%B5%3C/text%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 150px 150px;
+  
+  // Altura fija de viewport
+  height: calc(100vh - 56px); // Restar altura del header
+  overflow-y: auto;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
+  justify-content: center;
+  padding: 1rem;
 }
 
+
+// Imagen de perfil
 .profile-default-image {
-  margin-top: 40px;
-  text-align: center;
-
+  margin: 2rem 0;
+  
   .signup-title {
+    color: $blanco;
     font-size: 1.3rem;
-    font-weight: 500;
-    margin-bottom: 10px;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    text-shadow: $sombra-oscura;
   }
-
+  
   .signup-avatar {
-    width: 100px;
-    height: 100px;
+    width: 120px;
+    height: 120px;
     border-radius: 50%;
+    border: 3px solid $dorado1;
+    box-shadow: $sombra-dorada;
     object-fit: cover;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   }
 }
 
+// Formulario
 .signup-form {
-  width: 100%;
   max-width: 400px;
-  margin-top: 30px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
 }
 
-.signUp-item {
-  margin-bottom: 10px;
+// Items del formulario
+.signup-item {
+  --background: #{$gris-medio};
+  --border-radius: 12px;
+  --border-color: #{$gris-claro};
+  --color: #{$blanco};
+  --placeholder-color: #{$gris-claro};
+  margin-bottom: 1rem;
+  box-shadow: $sombra-oscura;
+  
+  &:focus-within {
+    --border-color: #{$dorado1};
+    box-shadow: $sombra-dorada;
+  }
+  
+  ion-input {
+    --color: #{$blanco};
+    --placeholder-color: #{$gris-claro};
+    font-size: 1rem;
+  }
 }
 
+// Mensajes de error
 .error-message {
-  color: #eb445a;
+  color: $rojo-coral;
   font-size: 0.85rem;
-  margin: 0 16px 10px;
+  margin: 0.5rem 0 1rem 1rem;
+  text-shadow: $sombra-oscura;
+}
+
+// Botones
+ion-button {
+  --border-radius: 25px;
+  --box-shadow: #{$sombra-neon};
+  margin: 0.8rem 0;
+  font-weight: bold;
+  font-size: 1rem;
+  min-width: 200px;
+  transition: all 0.3s ease;
+  
+  // Botón principal (signup)
+  &[type="submit"] {
+    --background: #{$gradiente-botones};
+    --color: #{$blanco};
+    --border-color: transparent;
+    
+    &:hover:not([disabled]) {
+      transform: translateY(-2px);
+      --box-shadow: #{$sombra-neon}, 0 6px 20px rgba(0, 191, 255, 0.3);
+    }
+    
+    &[disabled] {
+      --background: #{$gris-medio};
+      --color: #{$gris-claro};
+      opacity: 0.6;
+    }
+  }
+  
+  // Botón secundario (Sign up)
+  &:not([type="submit"]) {
+    --background: transparent;
+    --color: #{$dorado1};
+    --border-color: #{$dorado1};
+    --border-width: 2px;
+    
+    &:hover {
+      --background: #{$dorado1};
+      --color: #{$negro-profundo};
+      transform: translateY(-2px);
+      --box-shadow: #{$sombra-dorada};
+    }
+  }
+}
+
+// Mensaje de error general
+ion-content > form + * {
+  color: $rojo-coral;
+  text-align: center;
+  margin-top: 1rem;
+  font-weight: 500;
 }
