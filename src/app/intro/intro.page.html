@@ -1,44 +1,40 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>
-    </ion-title>
-      <ion-title>
       <div class="ion-text-center">
-          intro
+        <span style="color: #ffd700;">🎧 Intro</span>
       </div>
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-
 <ion-content 
-[ngStyle]="{'--ion-background-color': temaActual}"
-class="ion-padding custom-content">
+  [ngStyle]="{'--ion-background-color': temaActual}" 
+  class="ion-padding custom-content"
+>
 
   <swiper-container
     [slides-per-view]="1"
+    loop="true"
     class="w-full h-full custom-swiper"
-    [style.background-color]="temaActual">
-
-    <swiper-slide
-     *ngFor="let introSlide of introSlides; let i = index">
-      <div 
-      class="slide-content">
-        <div
-         class="slide-icon-wrapper">
-          <ion-icon [name]="introSlide.icon" class="slide-icon"></ion-icon>
+  >
+    <swiper-slide *ngFor="let introSlide of introSlides; let i = index">
+      <div class="slide-content">
+        <div class="slide-icon-wrapper">
+          <ion-icon [name]="introSlide.icon" class="slide-icon" style="font-size: 3.5rem; color: #ffd700;"></ion-icon>
         </div>
-        <h2 [style.color]="tematextoActual"
-        class="slide-title">{{ introSlide.title }}</h2>
-        <p [style.color]="tematextoActual"
-         class="slide-desc">{{ introSlide.description }}</p>
-        <!-- Botón visible solo en el último slide-->
-        <ion-button class="slide-button"
-                    (click)="goHome()"
-                    (click)="guardarVisita()"
-                    *ngIf="i === introSlides.length - 1"
-                    >
-           <ion-icon name="home"></ion-icon>
+
+        <h2 class="slide-title">{{ introSlide.title }}</h2>
+        <p class="slide-desc">{{ introSlide.description }}</p>
+
+        <!-- Botón solo en el último slide -->
+        <ion-button 
+          class="slide-button" 
+          (click)="goHome(); guardarVisita()"
+          *ngIf="i === introSlides.length - 1"
+        >
+          <ion-icon name="home"></ion-icon>
+          Entrar
         </ion-button>
       </div>
     </swiper-slide>

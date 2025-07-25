@@ -14,43 +14,55 @@
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
-<ion-content [ngStyle]="{'--ion-background-color': temaActual}" class="ion-padding custom-content">
-  <!-- Barra de búsqueda -->
-  <div class="search-bar">
-    <ion-searchbar placeholder="searc"></ion-searchbar>
-  </div>
-  <!-- Barra de búsqueda -->
-  <swiper-container 
-  slides-per-view="3" 
-  loop="true" 
-  autoplay-delay="2000" 
-  space-between="10">
-    <!--  [style.background-color]="temaActual -->"
-    <swiper-slide class="artist-card" *ngFor="let artist of LocalArtists">
-      <div class="artist-info" [style.color]="tematextoActual">
-        <!-- Usa artist.nombre en lugar de artist.name -->
-        <strong>{{ artist.nombre }}</strong>
-      </div>
-    </swiper-slide>
-  </swiper-container>
-  <swiper-container loop="true" class="w-full h-full custom-swiper">
-    <!--  [style.background-color]="temaActual -->"
-    <swiper-slide *ngFor="let album of albums">
-      <div class="slide-content">
-        <h2 [style.color]="tematextoActual">{{album.name}}</h2>
-        <img [src]="album.image" [alt]="album.name">
-        <p [style.color]="tematextoActual">
-          Género: {{album.genres}}<br>
-          Popularidad: {{album.popularity}}<br>
-          Canciones: {{album.total_tracks}}<br>
-          Lanzamiento: {{album.release_date}}
-        </p>
-      </div>
-    </swiper-slide>
-  </swiper-container>
 
-  <div [style.background-color]="temaActual" [style.color]="tematextoActual" class="slide-content"
-    style="margin-top: 32px; border-radius: 18px; box-shadow: 0 2px 16px #0002;">
-    reproductor
-  </div>
-</ion-content>
+  <ion-content 
+    [ngStyle]="{'--ion-background-color': temaActual}" 
+    class="ion-padding custom-content">
+
+      <!-- Barra de búsqueda -->
+      <div class="search-bar">
+        <ion-searchbar placeholder="searc"></ion-searchbar>
+      </div>
+
+      <!-- Slide artistas (json local) -->
+      <swiper-container 
+        slides-per-view="3" 
+        loop="true" 
+        autoplay-delay="2000" 
+        space-between="10">
+
+        <!--  [style.background-color]="temaActual -->"
+        <swiper-slide class="artist-card" *ngFor="let artist of LocalArtists">
+
+          <div class="artist-info" [style.color]="tematextoActual">
+            <strong>{{ artist.nombre }}</strong>
+          </div>
+
+        </swiper-slide>
+      </swiper-container>
+
+      <!-- Slide albumes (json local) -->
+      <swiper-container 
+        class="w-full h-full custom-swiper"
+          loop="true" 
+          autoplay-delay="2000" >
+        <!--  [style.background-color]="temaActual -->
+        <swiper-slide *ngFor="let album of albums">
+          <div class="slide-content">
+              <h2 [style.color]="tematextoActual">{{album.name}}</h2>
+              <img [src]="album.image" [alt]="album.name">
+              <p [style.color]="tematextoActual">
+                Género: {{album.genres}}<br>
+                Popularidad: {{album.popularity}}<br>
+                Canciones: {{album.total_tracks}}<br>
+                Lanzamiento: {{album.release_date}}
+              </p>
+          </div>
+        </swiper-slide>
+      </swiper-container>
+
+      <div [style.background-color]="temaActual" [style.color]="tematextoActual" class="slide-content"
+        style="margin-top: 32px; border-radius: 18px; box-shadow: 0 2px 16px #0002;">
+        reproductor
+      </div>
+  </ion-content>
