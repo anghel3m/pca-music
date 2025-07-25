@@ -25,6 +25,7 @@ export class HomePage implements OnInit {
 
   tracks: any;
   albums: any;
+  localArtists: any;
 
   generes = [
     {
@@ -55,6 +56,7 @@ export class HomePage implements OnInit {
     await this.loadStorageData();
     this.loadTracks();
     this.loadAlbums();
+    this.loadLocalArtists() 
   }
 
   goBack() {
@@ -95,4 +97,10 @@ export class HomePage implements OnInit {
       console.log(this.albums,"aqui los albumes")
     })
   }
+
+    async loadLocalArtists() {
+      this.localArtists =  this.musicService.getLocalArtists()
+      console.log(this.localArtists,"aqui los artistas")
+  }
+
 }

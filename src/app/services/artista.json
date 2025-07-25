@@ -1,0 +1,333 @@
+[
+  {
+    "nombre": "Beyoncé",
+    "genero": "Pop/R&B",
+    "pais": "Estados Unidos",
+    "anios_activos": "1997 - presente",
+    "albumes": [
+      { "titulo": "Dangerously in Love", "anio": 2003 },
+      { "titulo": "Lemonade", "anio": 2016 },
+      { "titulo": "Renaissance", "anio": 2022 }
+    ]
+  },
+  {
+    "nombre": "Bad Bunny",
+    "genero": "Reguetón/Trap latino",
+    "pais": "Puerto Rico",
+    "anios_activos": "2016 - presente",
+    "albumes": [
+      { "titulo": "X 100PRE", "anio": 2018 },
+      { "titulo": "YHLQMDLG", "anio": 2020 },
+      { "titulo": "Un Verano Sin Ti", "anio": 2022 }
+    ]
+  },
+  {
+    "nombre": "Adele",
+    "genero": "Soul/Pop",
+    "pais": "Reino Unido",
+    "anios_activos": "2006 - presente",
+    "albumes": [
+      { "titulo": "19", "anio": 2008 },
+      { "titulo": "21", "anio": 2011 },
+      { "titulo": "30", "anio": 2021 }
+    ]
+  },
+  {
+    "nombre": "Coldplay",
+    "genero": "Rock alternativo",
+    "pais": "Reino Unido",
+    "anios_activos": "1996 - presente",
+    "albumes": [
+      { "titulo": "Parachutes", "anio": 2000 },
+      { "titulo": "A Rush of Blood to the Head", "anio": 2002 },
+      { "titulo": "Music of the Spheres", "anio": 2021 }
+    ]
+  },
+  {
+    "nombre": "Rosalía",
+    "genero": "Flamenco/Pop urbano",
+    "pais": "España",
+    "anios_activos": "2013 - presente",
+    "albumes": [
+      { "titulo": "Los Ángeles", "anio": 2017 },
+      { "titulo": "El Mal Querer", "anio": 2018 },
+      { "titulo": "Motomami", "anio": 2022 }
+    ]
+  },
+  {
+    "nombre": "Drake",
+    "genero": "Hip-hop/R&B",
+    "pais": "Canadá",
+    "anios_activos": "2006 - presente",
+    "albumes": [
+      { "titulo": "Take Care", "anio": 2011 },
+      { "titulo": "Scorpion", "anio": 2018 },
+      { "titulo": "Certified Lover Boy", "anio": 2021 }
+    ]
+  },
+  {
+    "nombre": "Shakira",
+    "genero": "Pop latino/Rock",
+    "pais": "Colombia",
+    "anios_activos": "1990 - presente",
+    "albumes": [
+      { "titulo": "Pies Descalzos", "anio": 1995 },
+      { "titulo": "Fijación Oral, Vol. 1", "anio": 2005 },
+      { "titulo": "El Dorado", "anio": 2017 }
+    ]
+  },
+  {
+    "nombre": "The Weeknd",
+    "genero": "R&B/Synthpop",
+    "pais": "Canadá",
+    "anios_activos": "2010 - presente",
+    "albumes": [
+      { "titulo": "Beauty Behind the Madness", "anio": 2015 },
+      { "titulo": "After Hours", "anio": 2020 },
+      { "titulo": "Dawn FM", "anio": 2022 }
+    ]
+  },
+  {
+    "nombre": "Taylor Swift",
+    "genero": "Pop/Country",
+    "pais": "Estados Unidos",
+    "anios_activos": "2006 - presente",
+    "albumes": [
+      { "titulo": "Fearless", "anio": 2008 },
+      { "titulo": "1989", "anio": 2014 },
+      { "titulo": "Midnights", "anio": 2022 }
+    ]
+  },
+  {
+    "nombre": "Luis Miguel",
+    "genero": "Bolero/Pop latino",
+    "pais": "México",
+    "anios_activos": "1981 - presente",
+    "albumes": [
+      { "titulo": "Romance", "anio": 1991 },
+      { "titulo": "Segundo Romance", "anio": 1994 },
+      { "titulo": "México por Siempre", "anio": 2017 }
+    ]
+  },
+
+  {
+    "nombre": "Bad Bunny",
+    "genero": "Reguetón/Trap latino",
+    "pais": "Puerto Rico",
+    "anios_activos": "2016 - presente",
+    "albumes": [
+      { "titulo": "X 100PRE", "anio": 2018 },
+      { "titulo": "YHLQMDLG", "anio": 2020 },
+      { "titulo": "Un Verano Sin Ti", "anio": 2022 }
+    ]
+  },
+  {
+    "nombre": "Shakira",
+    "genero": "Pop latino/Rock",
+    "pais": "Colombia",
+    "anios_activos": "1990 - presente",
+    "albumes": [
+      { "titulo": "Pies Descalzos", "anio": 1995 },
+      { "titulo": "Fijación Oral Vol. 1", "anio": 2005 },
+      { "titulo": "El Dorado", "anio": 2017 }
+    ]
+  },
+  {
+    "nombre": "Luis Miguel",
+    "genero": "Bolero/Pop latino",
+    "pais": "México",
+    "anios_activos": "1981 - presente",
+    "albumes": [
+      { "titulo": "Romance", "anio": 1991 },
+      { "titulo": "Segundo Romance", "anio": 1994 },
+      { "titulo": "México Por Siempre", "anio": 2017 }
+    ]
+  },
+  {
+    "nombre": "Juanes",
+    "genero": "Pop rock latino",
+    "pais": "Colombia",
+    "anios_activos": "1998 - presente",
+    "albumes": [
+      { "titulo": "Fíjate Bien", "anio": 2000 },
+      { "titulo": "Mi Sangre", "anio": 2004 },
+      { "titulo": "Vida Cotidiana", "anio": 2023 }
+    ]
+  },
+  {
+    "nombre": "Rosalía",
+    "genero": "Flamenco/Pop urbano",
+    "pais": "España",
+    "anios_activos": "2013 - presente",
+    "albumes": [
+      { "titulo": "Los Ángeles", "anio": 2017 },
+      { "titulo": "El Mal Querer", "anio": 2018 },
+      { "titulo": "Motomami", "anio": 2022 }
+    ]
+  },
+  {
+    "nombre": "Karol G",
+    "genero": "Reguetón/Pop urbano",
+    "pais": "Colombia",
+    "anios_activos": "2012 - presente",
+    "albumes": [
+      { "titulo": "Unstoppable", "anio": 2017 },
+      { "titulo": "KG0516", "anio": 2021 },
+      { "titulo": "Mañana Será Bonito", "anio": 2023 }
+    ]
+  },
+  {
+    "nombre": "Daddy Yankee",
+    "genero": "Reguetón",
+    "pais": "Puerto Rico",
+    "anios_activos": "1994 - 2022",
+    "albumes": [
+      { "titulo": "Barrio Fino", "anio": 2004 },
+      { "titulo": "El Cartel: The Big Boss", "anio": 2007 },
+      { "titulo": "Legendaddy", "anio": 2022 }
+    ]
+  },
+  {
+    "nombre": "Celia Cruz",
+    "genero": "Salsa",
+    "pais": "Cuba",
+    "anios_activos": "1948 - 2003",
+    "albumes": [
+      { "titulo": "La Incomparable Celia", "anio": 1964 },
+      { "titulo": "Azucar Negra", "anio": 1993 },
+      { "titulo": "La Negra Tiene Tumbao", "anio": 2001 }
+    ]
+  },
+  {
+    "nombre": "J Balvin",
+    "genero": "Reguetón",
+    "pais": "Colombia",
+    "anios_activos": "2004 - presente",
+    "albumes": [
+      { "titulo": "Energía", "anio": 2016 },
+      { "titulo": "Colores", "anio": 2020 },
+      { "titulo": "Jose", "anio": 2021 }
+    ]
+  },
+  {
+    "nombre": "Ricky Martin",
+    "genero": "Pop latino",
+    "pais": "Puerto Rico",
+    "anios_activos": "1984 - presente",
+    "albumes": [
+      { "titulo": "A Medio Vivir", "anio": 1995 },
+      { "titulo": "Vuelve", "anio": 1998 },
+      { "titulo": "Música + Alma + Sexo", "anio": 2011 }
+    ]
+  },
+  {
+    "nombre": "Marc Anthony",
+    "genero": "Salsa/Pop latino",
+    "pais": "Estados Unidos (origen puertorriqueño)",
+    "anios_activos": "1988 - presente",
+    "albumes": [
+      { "titulo": "Otra Nota", "anio": 1993 },
+      { "titulo": "Valió la Pena", "anio": 2004 },
+      { "titulo": "Pa’llá Voy", "anio": 2022 }
+    ]
+  },
+  {
+    "nombre": "Thalía",
+    "genero": "Pop latino",
+    "pais": "México",
+    "anios_activos": "1990 - presente",
+    "albumes": [
+      { "titulo": "Primera Fila", "anio": 2009 },
+      { "titulo": "Habítame Siempre", "anio": 2012 },
+      { "titulo": "DesAMORfosis", "anio": 2021 }
+    ]
+  },
+  {
+    "nombre": "Café Tacvba",
+    "genero": "Rock alternativo latino",
+    "pais": "México",
+    "anios_activos": "1989 - presente",
+    "albumes": [
+      { "titulo": "Re", "anio": 1994 },
+      { "titulo": "Revés/Yo Soy", "anio": 1999 },
+      { "titulo": "Jei Beibi", "anio": 2017 }
+    ]
+  },
+  {
+    "nombre": "Mon Laferte",
+    "genero": "Rock/Pop alternativo",
+    "pais": "Chile",
+    "anios_activos": "2003 - presente",
+    "albumes": [
+      { "titulo": "Mon Laferte Vol. 1", "anio": 2015 },
+      { "titulo": "La Trenza", "anio": 2017 },
+      { "titulo": "Seis", "anio": 2021 }
+    ]
+  },
+  {
+    "nombre": "Lila Downs",
+    "genero": "Música tradicional/Mexicana",
+    "pais": "México",
+    "anios_activos": "1994 - presente",
+    "albumes": [
+      { "titulo": "La Sandunga", "anio": 1999 },
+      { "titulo": "Balas y Chocolate", "anio": 2015 },
+      { "titulo": "Al Chile", "anio": 2019 }
+    ]
+  },
+  {
+    "nombre": "Anitta",
+    "genero": "Pop/Funk carioca",
+    "pais": "Brasil",
+    "anios_activos": "2010 - presente",
+    "albumes": [
+      { "titulo": "Bang", "anio": 2015 },
+      { "titulo": "Kisses", "anio": 2019 },
+      { "titulo": "Versions of Me", "anio": 2022 }
+    ]
+  },
+  {
+    "nombre": "Residente",
+    "genero": "Hip-hop/Alternativo",
+    "pais": "Puerto Rico",
+    "anios_activos": "2005 - presente",
+    "albumes": [
+      { "titulo": "Residente", "anio": 2017 },
+      { "titulo": "Las Letras Ya No Importan", "anio": 2024 },
+      { "titulo": "Apocalipsis", "anio": 2025 }
+    ]
+  },
+  {
+    "nombre": "Natalia Lafourcade",
+    "genero": "Folk/Pop alternativo",
+    "pais": "México",
+    "anios_activos": "2002 - presente",
+    "albumes": [
+      { "titulo": "Casa", "anio": 2005 },
+      { "titulo": "Hasta la Raíz", "anio": 2015 },
+      { "titulo": "De Todas las Flores", "anio": 2022 }
+    ]
+  },
+  {
+    "nombre": "Paulo Londra",
+    "genero": "Trap argentino",
+    "pais": "Argentina",
+    "anios_activos": "2017 - presente",
+    "albumes": [
+      { "titulo": "Homerun", "anio": 2019 },
+      { "titulo": "Back to the Game", "anio": 2022 },
+      { "titulo": "Nueva Generación", "anio": 2024 }
+    ]
+  },
+  {
+    "nombre": "CNCO",
+    "genero": "Pop latino/Boy band",
+    "pais": "Estados Unidos/Latinoamérica",
+    "anios_activos": "2015 - 2023",
+    "albumes": [
+      { "titulo": "Primera Cita", "anio": 2016 },
+      { "titulo": "CNCO", "anio": 2018 },
+      { "titulo": "Déjà Vu", "anio": 2021 }
+    ]
+  }
+]
