@@ -7,22 +7,19 @@
             <ion-icon name="close-circle-sharp" size="large"></ion-icon>
           </ion-menu-toggle>
         </ion-buttons>
-        <ion-title class="ion-text-center">Menu</ion-title>
+        <ion-title class="ion-text-center">Menú</ion-title>
       </ion-toolbar>
     </ion-header>
     <ion-content>
       <ion-list>
-        <ion-title>
-          <ion-item (click)="goIntro()">
-            intro
-          </ion-item>
-          <ion-item (click)="closeSesion()">
-            cerrar sesion
-          </ion-item>
-        </ion-title>
+        <ion-item button (click)="goIntro()">
+          Intro
+        </ion-item>
+        <ion-item button (click)="closeSesion()">
+          Cerrar Sesión
+        </ion-item>
       </ion-list>
     </ion-content>
   </ion-menu>
-  <ion-router-outlet id="main-content">
-  </ion-router-outlet>
+  <ion-router-outlet id="main-content"></ion-router-outlet>
 </ion-split-pane>
