@@ -21,7 +21,7 @@ $rojo-coral: #ff6b6b;
 // Gradientes
 $gradiente-principal: linear-gradient(135deg, #{$dorado2}, #{$dorado1});
 $gradiente-fondo: linear-gradient(180deg, #{$negro-profundo}, #{$gris-oscuro});
-$gradiente-botones: linear-gradient(45deg,  #{$azul-electrico},#{$purpura-vibrante});
+$gradiente-botones: linear-gradient(45deg,  #{$dorado4},#{$dorado3});
 
 // Sombras
 $sombra-dorada: 0 4px 20px rgba(212, 175, 55, 0.3);
@@ -104,7 +104,6 @@ ion-header {
 
 // Swiper personalizado
 .custom-swiper {
-  
   swiper-slide {
     display: flex;
     align-items: center;
