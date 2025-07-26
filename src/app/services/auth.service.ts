@@ -23,13 +23,19 @@ loginUser (credentials :any){
 
 
    // AUTENTICACION API
-  login(email: string, password: string) {
-    return fetch(`${this.urlServer}/login`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ email, password })
-    }).then(response => response.json());
-  }
+ login(credentials: { email: string; password: string }) {
+  return fetch(`https://music.fly.dev/login`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ user: credentials })
+  }).then(async response => {
+    if (!response.ok) {
+      const error = await response.json();
+      throw error;
+    }
+    return response.json();
+  });
+}
 
 
   logout() {

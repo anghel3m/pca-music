@@ -47,16 +47,19 @@
         Login
       </ion-button>
     </div>
+
     <!--botón Sign up-->
     <div class="ion-text-center">
       <ion-button fill="outline"
        color="warning"  
        shape="round"
-        (click)="goSignUp()"
-       >
+        (click)="goSignUp()">
         Sign up
       </ion-button>
     </div>
   </form>
-  {{errror_Message}}
+  <div class="error-message">
+{{errror_Message}}
+  </div>
+  
 </ion-content>

@@ -62,22 +62,25 @@ export class LoginPage implements OnInit {
   }
 
  loginUser(credenciales: any) {
-  this.authService.login(credenciales.email, credenciales.password)
+  this.authService.login({ email: credenciales.email, password: credenciales.password })
     .then(async (res: any) => {
-      if (res.status === "OK") {
-        this.errror_Message = "";
-        await this.storageService.set('logueado', 'si');
-        await this.storageService.set('usuario', res.user);
-        this.navCtrl.navigateForward("/menu/home");
-      } else {
-        this.errror_Message = res.msg || "Error al iniciar sesión";
-      }
+      this.errror_Message = "";
+      await this.storageService.set('logueado', 'si');
+      await this.storageService.set('usuario', res.user);
+      this.navCtrl.navigateForward("/menu/home");
     })
     .catch(err => {
-      console.error(err);
-      this.errror_Message = "Error en el servidor o credenciales incorrectas";
+      console.error("Login error:", err);
+      if (err?.errors && Array.isArray(err.errors)) {
+        this.errror_Message = err.errors[0]; // Mensaje devuelto por la API
+      } else if (err?.msg) {
+        this.errror_Message = err.msg; // Otro posible formato
+      } else {
+        this.errror_Message = "Credenciales incorrectas o error de red";
+      }
     });
 }
+
 
     async logueado() {
     await this.storageService.set('logueado', 'si');
