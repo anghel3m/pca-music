@@ -61,17 +61,24 @@ export class LoginPage implements OnInit {
 
   }
 
-  loginUser(credentiales: any) {
-   /*  console.log(credentiales) */
-  this.authService.loginUser(credentiales).then(res=> {
-   /*  console.log(res) */
-   this.errror_Message= "";
-   this.navCtrl.navigateForward("/menu/home");
-    this.logueado() 
-  }).catch(error =>{
-    this.errror_Message= error;
-  })
-  }
+ loginUser(credenciales: any) {
+  this.authService.login(credenciales.email, credenciales.password)
+    .then(async (res: any) => {
+      if (res.status === "OK") {
+        this.errror_Message = "";
+        await this.storageService.set('logueado', 'si');
+        await this.storageService.set('usuario', res.user);
+        this.navCtrl.navigateForward("/menu/home");
+      } else {
+        this.errror_Message = res.msg || "Error al iniciar sesión";
+      }
+    })
+    .catch(err => {
+      console.error(err);
+      this.errror_Message = "Error en el servidor o credenciales incorrectas";
+    });
+}
+
     async logueado() {
     await this.storageService.set('logueado', 'si');
   }

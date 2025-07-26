@@ -9,34 +9,7 @@ export class UsersService {
 
   constructor() {}
 
-  // AUTHENTICATION
-  login(email: string, password: string) {
-    return fetch(`${this.urlServer}/login`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ email, password })
-    }).then(response => response.json());
-  }
-
-  signup(user: {
-    email: string,
-    password: string,
-    name: string,
-    username: string
-  }) {
-    return fetch(`${this.urlServer}/signup`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ user })
-    }).then(response => response.json());
-  }
-
-  logout() {
-    return fetch(`${this.urlServer}/logout`, {
-      method: 'DELETE',
-      headers: { 'Content-Type': 'application/json' }
-    }).then(response => response.json());
-  }
+ 
 
   // USERS
   listUsers(page: number = 1, perPage: number = 10) {

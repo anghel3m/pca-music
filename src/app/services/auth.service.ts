@@ -5,6 +5,8 @@ import { Injectable } from '@angular/core';
 })
 export class AuthService {
 
+   urlServer = "https://music.fly.dev";
+
   constructor() { }
 loginUser (credentials :any){
   return  new Promise ((accept, reject)=>{
@@ -18,4 +20,34 @@ loginUser (credentials :any){
     }
   })
 }
+
+
+   // AUTENTICACION API
+  login(email: string, password: string) {
+    return fetch(`${this.urlServer}/login`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email, password })
+    }).then(response => response.json());
+  }
+
+  signup(user: {
+    email: string,
+    password: string,
+    name: string,
+    username: string
+  }) {
+    return fetch(`${this.urlServer}/signup`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ user })
+    }).then(response => response.json());
+  }
+
+  logout() {
+    return fetch(`${this.urlServer}/logout`, {
+      method: 'DELETE',
+      headers: { 'Content-Type': 'application/json' }
+    }).then(response => response.json());
+  }
 }
