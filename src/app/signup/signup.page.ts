@@ -98,17 +98,29 @@ export class SignupPage implements OnInit {
 
   }
 
-  signUpUser(credentiales: any) {
-   /*  console.log(credentiales) */
-  this.registerService.registerUser(credentiales).then(res=> {
-   /*  console.log(res) */
-   this.errror_Message= "";
-   this.navCtrl.navigateForward("/menu/home");
-    this.logueado() 
-  }).catch(error =>{
-    this.errror_Message= error;
-  })
-  }
+  signUpUser(credenciales: any) {
+  const user = {
+    email: credenciales.email,
+    password: credenciales.password,
+    password_confirmation: credenciales.password, // duplicamos para confirmación
+    name: credenciales.name,
+    last_name: credenciales.lastName
+  };
+
+  this.registerService.signup(user).then(async res => {
+    if (res.status === "OK") {
+      this.errror_Message = "";
+      await this.storageService.set('logueado', 'si');
+      await this.registerService.guardarUsuario(user);
+      this.navCtrl.navigateForward("/menu/home");
+    } else {
+      this.errror_Message = res.msg || "Error al registrar";
+    }
+  }).catch(error => {
+    console.error(error);
+    this.errror_Message = "Error en el servidor";
+  });
+}
     async logueado() {
     await this.storageService.set('logueado', 'si');
   }

@@ -31,18 +31,6 @@ loginUser (credentials :any){
     }).then(response => response.json());
   }
 
-  signup(user: {
-    email: string,
-    password: string,
-    name: string,
-    username: string
-  }) {
-    return fetch(`${this.urlServer}/signup`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ user })
-    }).then(response => response.json());
-  }
 
   logout() {
     return fetch(`${this.urlServer}/logout`, {
