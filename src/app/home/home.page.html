@@ -41,13 +41,13 @@
         </swiper-slide>
       </swiper-container>
 
-      <!-- Slide albumes (json local) -->
+      <!-- Slide albumes -->
       <swiper-container 
         class="w-full h-full custom-swiper"
           loop="true" 
           autoplay-delay="3500" >
         <!--  [style.background-color]="temaActual -->
-        <swiper-slide *ngFor="let album of albums">
+        <swiper-slide *ngFor="let album of albums" (click)="showSongs(album.id)">
           <div class="slide-content">
               <h2 [style.color]="tematextoActual">{{album.name}}</h2>
               <img [src]="album.image" [alt]="album.name">

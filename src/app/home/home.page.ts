@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { IonicModule } from '@ionic/angular';
+import { IonicModule, ModalController } from '@ionic/angular';
 import { CommonModule } from '@angular/common';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { StorageService } from "../services/storage.service";
 import { Router } from "@angular/router";
 import { MusicService } from "../services/music.service";
+import { SongsModalPage } from '../songs-modal/songs-modal.page';
+
 
 @Component({
   selector: 'app-home',
@@ -50,7 +52,7 @@ export class HomePage implements OnInit {
     }
   ]
 
-  constructor(private router: Router, private storageService: StorageService, private musicService: MusicService) { }
+  constructor(private router: Router, private storageService: StorageService, private musicService: MusicService, private modalCtr: ModalController ) { }
 
   async ngOnInit() {
     await this.loadStorageData();
@@ -101,6 +103,19 @@ export class HomePage implements OnInit {
     async loadLocalArtists() {
       this.LocalArtists = this.musicService.getLocalArtists().artists;
       console.log(this.LocalArtists.artists)
+  }
+
+    async showSongs(albumsId: string) {
+      const songs = await this.musicService.getSongsByAlbum(albumsId);
+      console.log( songs)
+      const modal = await this.modalCtr.create({
+        component: SongsModalPage,
+        componentProps: {
+          songs: songs,
+          albumId: albumsId
+        }
+      });
+      modal.present();
   }
 
 }

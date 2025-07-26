@@ -60,12 +60,12 @@ export class MusicService {
     }).then(response => response.json());
   }
 
-  getTracksByArtist(artistId: number) {
+  getSongsByArtist(artistId: number) {
     return fetch(`${this.urlServer}/tracks/artist/${artistId}`)
       .then(response => response.json());
   }
 
-  getTracksByAlbum(albumId: number) {
+   getSongsByAlbum(albumId: string) {
     return fetch(`${this.urlServer}/tracks/album/${albumId}`)
       .then(response => response.json());
   }
