@@ -28,6 +28,7 @@ export class HomePage implements OnInit {
   tracks: any;
   albums: any;
   LocalArtists: any;
+  artists: any;
 
   generes = [
     {
@@ -59,6 +60,7 @@ export class HomePage implements OnInit {
     this.loadTracks();
     this.loadAlbums();
     this.loadLocalArtists() 
+    this.loadArtists();
   }
 
   goBack() {
@@ -105,6 +107,16 @@ export class HomePage implements OnInit {
       console.log(this.LocalArtists.artists)
   }
 
+    loadArtists() {
+  try {
+    this.musicService.getArtists().then(artists => {
+      this.artists = artists;
+      console.log("Artistas cargados:", this.artists);
+    });
+  } catch (error) {
+    console.error("Error al cargar artistas:", error);
+  }
+}
     async showSongs(albumsId: string) {
       const songs = await this.musicService.getSongsByAlbum(albumsId);
       console.log( songs)
@@ -113,6 +125,19 @@ export class HomePage implements OnInit {
         componentProps: {
           songs: songs,
           albumId: albumsId
+        }
+      });
+      modal.present();
+  }
+
+     async showSongsArtist(artistId: string) {
+      const songs = await this.musicService.getSongsByArtist(artistId);
+      console.log( songs)
+      const modal = await this.modalCtr.create({
+        component: SongsModalPage,
+        componentProps: {
+          songs: songs,
+          artistId: artistId
         }
       });
       modal.present();

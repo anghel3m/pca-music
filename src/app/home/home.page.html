@@ -24,22 +24,25 @@
         <ion-searchbar placeholder="searc"></ion-searchbar>
       </div>
 
-      <!-- Slide artistas (json local) -->
-      <swiper-container 
-        slides-per-view="3" 
-        loop="true" 
-        autoplay-delay="2000" 
-        space-between="10">
+      <!-- Slide artistas -->
+   <swiper-container 
+  slides-per-view="3" 
+  loop="true" 
+  autoplay-delay="2000" 
+  space-between="10"
+>
 
-        <!--  [style.background-color]="temaActual -->"
-        <swiper-slide class="artist-card" *ngFor="let artist of LocalArtists">
+  <swiper-slide class="artist-card" *ngFor="let artist of artists" (click)="showSongsArtist(artist.id)">
+    <div class="artist-info" [style.color]="tematextoActual" style="text-align: center;">
+      <img 
+        [src]="artist.image" 
+        alt="{{ artist.name }}" 
+        style="width: 150px; height: 150px; object-fit: cover; border-radius: 10px; margin: 0 auto;">
+      <strong style="display: block; margin-top: 10px;">{{ artist.name }}</strong>
+    </div>
+  </swiper-slide>
 
-          <div class="artist-info" [style.color]="tematextoActual">
-            <strong>{{ artist.nombre }}</strong>
-          </div>
-
-        </swiper-slide>
-      </swiper-container>
+</swiper-container>
 
       <!-- Slide albumes -->
       <swiper-container 
@@ -47,7 +50,7 @@
           loop="true" 
           autoplay-delay="3500" >
         <!--  [style.background-color]="temaActual -->
-        <swiper-slide *ngFor="let album of albums" (click)="showSongs(album.id)">
+        <swiper-slide   *ngFor="let album of albums" (click)="showSongs(album.id)">
           <div class="slide-content">
               <h2 [style.color]="tematextoActual">{{album.name}}</h2>
               <img [src]="album.image" [alt]="album.name">

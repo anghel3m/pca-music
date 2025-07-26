@@ -60,7 +60,7 @@ export class MusicService {
     }).then(response => response.json());
   }
 
-  getSongsByArtist(artistId: number) {
+  getSongsByArtist(artistId: string) {
     return fetch(`${this.urlServer}/tracks/artist/${artistId}`)
       .then(response => response.json());
   }
