@@ -4,70 +4,84 @@
       PCA Music
     </ion-title>
     <ion-buttons slot="end" class="title-buttons">
-      <ion-button class="slide-button" size="medium" (click)="goBack()">
-        <ion-icon name="exit"></ion-icon>
-      </ion-button>
-      <ion-button class="slide-button" size="medium" (click)="cambiarTema()">
-        <ion-icon name="contrast"></ion-icon>
-      </ion-button>
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-  <ion-content 
-    [ngStyle]="{'--ion-background-color': temaActual}" 
-    class="ion-padding custom-content">
+<ion-content [ngStyle]="{'--ion-background-color': temaActual}" class="ion-padding custom-content">
 
-      <!-- Barra de búsqueda -->
-      <div class="search-bar">
-        <ion-searchbar placeholder="searc"></ion-searchbar>
+  <!-- Barra de búsqueda -->
+  <div class="search-bar">
+    <ion-searchbar placeholder="searc"></ion-searchbar>
+  </div>
+
+  <!-- Slide artistas -->
+  <swiper-container slides-per-view="3" loop="true" autoplay-delay="2000" space-between="10">
+
+    <swiper-slide class="artist-card" *ngFor="let artist of artists" (click)="showSongsArtist(artist.id)">
+      <div class="artist-info" [style.color]="tematextoActual" style="text-align: center;">
+        <img [src]="artist.image" alt="{{ artist.name }}"
+          style="width: 150px; height: 150px; object-fit: cover; border-radius: 10px; margin: 0 auto;">
+        <strong style="display: block; margin-top: 10px;">{{ artist.name }}</strong>
       </div>
+    </swiper-slide>
 
-      <!-- Slide artistas -->
-   <swiper-container 
-  slides-per-view="3" 
-  loop="true" 
-  autoplay-delay="2000" 
-  space-between="10"
->
+  </swiper-container>
 
-  <swiper-slide class="artist-card" *ngFor="let artist of artists" (click)="showSongsArtist(artist.id)">
-    <div class="artist-info" [style.color]="tematextoActual" style="text-align: center;">
-      <img 
-        [src]="artist.image" 
-        alt="{{ artist.name }}" 
-        style="width: 150px; height: 150px; object-fit: cover; border-radius: 10px; margin: 0 auto;">
-      <strong style="display: block; margin-top: 10px;">{{ artist.name }}</strong>
-    </div>
-  </swiper-slide>
-
-</swiper-container>
-
-      <!-- Slide albumes -->
-      <swiper-container 
-        class="w-full h-full custom-swiper"
-          loop="true" 
-          autoplay-delay="3500" >
-        <!--  [style.background-color]="temaActual -->
-        <swiper-slide   *ngFor="let album of albums" (click)="showSongs(album.id)">
-          <div class="slide-content">
-              <h2 [style.color]="tematextoActual">{{album.name}}</h2>
-              <img [src]="album.image" [alt]="album.name">
-              <p [style.color]="tematextoActual">
-                Género: {{album.genres}}<br>
-                Popularidad: {{album.popularity}}<br>
-                Canciones: {{album.total_tracks}}<br>
-                Lanzamiento: {{album.release_date}}
-              </p>
-          </div>
-        </swiper-slide>
-      </swiper-container>
-
-      <div [style.background-color]="temaActual" [style.color]="tematextoActual" class="slide-content"
-        style="margin-top: 32px; border-radius: 18px; box-shadow: 0 2px 16px #0002;">
-        reproductor
+  <!-- Slide albumes -->
+  <swiper-container class="w-full h-full custom-swiper" loop="true" autoplay-delay="3500">
+    <!--  [style.background-color]="temaActual -->
+    <swiper-slide *ngFor="let album of albums" (click)="showSongs(album.id)">
+      <div class="slide-content">
+        <h2 [style.color]="tematextoActual">{{album.name}}</h2>
+        <img [src]="album.image" [alt]="album.name">
+        <p [style.color]="tematextoActual">
+          Género: {{album.genres}}<br>
+          Popularidad: {{album.popularity}}<br>
+          Canciones: {{album.total_tracks}}<br>
+          Lanzamiento: {{album.release_date}}
+        </p>
       </div>
+    </swiper-slide>
+  </swiper-container>
 
-      
-  </ion-content>
+  <swiper-container [slides-per-view]="1" loop="true" autoplay-delay="2500">
+    <swiper-slide *ngFor="let genere of generes">
+      <div class="artist-info">
+        <img [src]="genere.image" [alt]="genere.title">
+      </div>
+    </swiper-slide>
+  </swiper-container>
+
+  <div [style.background-color]="temaActual" [style.color]="tematextoActual" class="slide-content"
+    style="margin-top: 32px; border-radius: 18px; box-shadow: 0 2px 16px #0002;">
+    reproductor
+  </div>
+
+
+</ion-content>
+
+<ion-footer>
+   <ion-grid>
+    <ion-row>
+        <ion-col class="ion-text-start">{{ parseTime(currentSong.currentTime) || "0:00"}}</ion-col>
+        <ion-col class="ion-text-end">{{ parseTime(currentSong.duration) || "0:00"}}</ion-col>
+    </ion-row>
+   </ion-grid>
+   <ion-progress-bar [value]="newTime || 0"></ion-progress-bar>
+   <ion-grid>
+    <ion-row>
+        <ion-col>
+            <ion-icon name="heart"></ion-icon>
+        </ion-col>
+        <ion-col>
+            <ion-text>{{song.name || "Aun no has seleccionado cancion"}}</ion-text>
+        </ion-col>
+        <ion-col class="ion-text-end">
+            <ion-icon name="play" (click)="play()" *ngIf="!song.playing"></ion-icon>
+            <ion-icon name="pause" (click)="pause()" *ngIf="song.playing"></ion-icon>
+        </ion-col>
+    </ion-row>
+   </ion-grid>
+</ion-footer>
